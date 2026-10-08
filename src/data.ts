@@ -142,7 +142,7 @@ const file = (folder: string, name: string) => encodeURI(`./${folder}/${name}`)
 export const certificateFiles: FileGroup[] = [
   {
     group: 'AWS Academy Graduate: Cloud Web Application Builder',
-    files: [{ label: 'Training badge', url: file('Certificates', 'aws-academy-graduate-cloud-web-application-builder-.png') }],
+    files: [{ label: 'Training badge', url: file('Certificates', 'AWS_Academy_Graduate___Cloud_Web_Application_Builder___Training_Badge_Badge20251002-31-m3h6kh.pdf') }],
   },
   {
     group: 'AWS Skill Builder',
