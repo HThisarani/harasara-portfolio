@@ -147,7 +147,7 @@ export const certificateFiles: FileGroup[] = [
   {
     group: 'AWS Skill Builder',
     files: [
-      { label: 'Skill Builder certificate', url: file('Certificates', 'AWS Skill Builder Certificate.pdf') },
+      { label: 'AWS SimuLearn: Computing Solutions', url: file('Certificates', 'AWS Skill Builder  Certificate IT22105448.pdf') },
       { label: 'Auto-Healing and Scaling', url: file('Certificates', 'AWS SimuLearn Auto-Healing and Scaling Applications.pdf') },
       { label: 'Networking Concepts', url: file('Certificates', 'AWS Skill Builder - Networking Concepts.pdf') },
       { label: 'Relational Databases', url: file('Certificates', 'AWS Skill Builder - Relational Databases.pdf') },
