@@ -114,7 +114,7 @@ export const usedAtWork = [
 ]
 
 export const education = [
-  'BSc (Hons) in Information Technology (specialized in IT), SLIIT, 2022 to 2026. Graduated. Dean\u2019s List 2024.',
+  'BSc (Hons) in Information Technology (specialized in IT), SLIIT, 2022 to 2026. Graduated.',
   'Higher Diploma in Information Technology, SLIIT, 2022 to 2024.',
   'G.C.E. Advanced Level, Physical Science stream, Bandarawela Central College, 2018 to 2020.',
 ]
