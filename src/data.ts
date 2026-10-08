@@ -16,9 +16,9 @@ export const profile = {
 
 export const stats = [
   { n: '1 year', t: 'of industry experience' },
-  { n: '18', t: 'projects across web, mobile and design' },
+  { n: '18+', t: 'projects across web, mobile and design' },
   { n: '2024', t: 'Dean\u2019s List at SLIIT' },
-  { n: '5', t: 'cloud and platform certifications' },
+  { n: '10+', t: 'cloud and platform certifications' },
 ]
 
 export const experience = [
@@ -129,7 +129,7 @@ export const certifications = [
 
 // Add more achievements here.
 export const achievements = [
-  { title: 'SLIIT Scholarship: 50% for superior academic performance', org: 'SLIIT', year: '2025', badge: '50%' },
+  { title: 'SLIIT Scholarship for superior academic performance', org: 'SLIIT', year: '2025', badge: 'SCH' },
   { title: 'Dean\u2019s List: Certificate for Academic Excellence', org: 'SLIIT', year: '2024', badge: 'DL' },
   { title: 'School Prefect: leadership, responsibility and commitment', org: 'Bandarawela Central College', year: '2017 to 2020', badge: 'P' },
 ]
