@@ -1463,3 +1463,7 @@ footer {
   letter-spacing: -.04em;
   color: #fff;
 }
+/* smaller gap under the navbar */
+.hero {
+  padding-top: 2rem
+}
