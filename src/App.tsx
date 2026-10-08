@@ -203,7 +203,7 @@ export default function App() {
               </div>
 
               <div className="hero-photo">
-  <img src="./image.png" alt="HTK" />
+  <img src="./image.webp" alt="HTK" width="400" height="400" fetchPriority="high" decoding="async" />
 </div>
             </div>
             <div className="facts">
