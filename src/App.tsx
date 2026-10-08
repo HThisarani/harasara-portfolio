@@ -112,6 +112,7 @@ export default function App() {
   const [showAll, setShowAll] = useState(false)
   const [menu, setMenu] = useState(false)
   const [photo, setPhoto] = useState(true)
+
   const [active, setActive] = useState('')
   const filtered = rest.filter((p) => kind === 'All' || p.kind === kind)
   const shown = showAll || kind !== 'All' ? filtered : filtered.slice(0, 6)
@@ -186,12 +187,12 @@ export default function App() {
       </header>
 
       <main id="top">
-        <section className="hero">
+                <section className="hero">
           <div className="wrap">
             <div className="hero-grid">
               <div>
                 <p className="status">{profile.looking}</p>
-                <h1>{profile.name}</h1>
+                <h1>{profile.name.split(' ').map((w) => <span key={w}>{w}</span>)}</h1>
                 <p className="role">{profile.role}</p>
                 <p className="tagline">{profile.tagline}</p>
                 <p className="cta">
@@ -200,6 +201,8 @@ export default function App() {
                   <a className="btn" href={`mailto:${profile.email}`}>Email me</a>
                 </p>
               </div>
+
+              <div className="hero-photo" aria-hidden="true">HTK</div>
             </div>
             <div className="facts">
               {stats.map((s) => (<Stat key={s.t} n={s.n} t={s.t} />))}

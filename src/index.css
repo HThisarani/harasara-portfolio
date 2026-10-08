@@ -1297,3 +1297,169 @@ footer {
   color: #fff;
   text-decoration: none
 }
+/* ---------- hero layout: name full width, text left, photo right ---------- */
+.hero-grid {
+  grid-template-columns: 1fr 22rem;
+  column-gap: 4rem;
+  row-gap: 0;
+  align-items: start;
+}
+
+.hero-grid > div:first-child { display: contents }
+
+.hero-grid .status { grid-column: 1 / -1; justify-self: start }
+
+.hero-grid > div:first-child > h1 {
+  grid-column: 1 / -1;
+  font-size: clamp(2rem, 6vw, 4.2rem);
+  white-space: nowrap;
+}
+
+.hero-grid .role,
+.hero-grid .tagline,
+.hero-grid .cta { grid-column: 1 }
+
+.hero-photo {
+  grid-column: 2;
+  grid-row: 3 / span 3;
+  align-self: center;
+  margin: 0 1.5rem 1.5rem 0;
+  animation: rise .8s .3s ease backwards;
+}
+
+.hero-photo img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  object-position: center 15%;
+  border-radius: 24px;
+  box-shadow: 1.5rem 1.5rem 0 var(--accent);
+}
+
+@media (max-width: 900px) {
+  .hero-grid { grid-template-columns: 1fr }
+  .hero-photo { grid-column: 1; grid-row: auto; max-width: 18rem; margin-top: 2.5rem }
+}
+
+@media (max-width: 600px) {
+  .hero-grid > div:first-child > h1 { white-space: normal }
+}/* ---------- hero layout: name one word per line, text left, photo right ---------- */
+.hero-grid {
+  grid-template-columns: 1fr 24rem;
+  column-gap: 4rem;
+  align-items: center;
+}
+
+.hero-grid > div:first-child > h1 {
+  font-size: clamp(3rem, 8vw, 5.5rem);
+  line-height: 1.05;
+}
+
+.hero-grid > div:first-child > h1 span { display: block }
+
+.hero-photo {
+  margin: 0 1.5rem 1.5rem 0;
+  animation: rise .8s .3s ease backwards;
+}
+
+.hero-photo img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  object-position: center 15%;
+  border-radius: 24px;
+  box-shadow: 1.5rem 1.5rem 0 var(--accent);
+}
+
+@media (max-width: 900px) {
+  .hero-grid { grid-template-columns: 1fr }
+  .hero-photo { max-width: 18rem; margin-top: 1rem }
+}
+/* ---------- hero layout ---------- */
+.hero-grid {
+  grid-template-columns: 1fr 24rem;
+  column-gap: 4rem;
+  align-items: center;
+}
+
+/* left column: every item gets the same gap, old margins removed */
+.hero-grid>div:first-child {
+  grid-column: 1;
+  grid-row: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.2rem;
+}
+
+.hero-grid>div:first-child>.status,
+.hero-grid>div:first-child>h1,
+.hero-grid>div:first-child>.role,
+.hero-grid>div:first-child>.tagline,
+.hero-grid>div:first-child>.cta {
+  margin: 0;
+}
+
+.hero-grid>div:first-child>h1 {
+  font-size: clamp(3rem, 8vw, 5.5rem);
+  line-height: 1.05;
+}
+
+.hero-grid>div:first-child>h1 span {
+  display: block
+}
+
+.hero-grid>div:first-child>.role {
+  line-height: 1.4
+}
+
+.hero-grid>div:first-child>.tagline {
+  line-height: 1.5;
+  max-width: 30rem
+}
+
+/* photo: right column, vertically centered against the whole text block */
+.hero-photo {
+  grid-column: 2;
+  grid-row: 1;
+  align-self: center;
+  margin: 0 1.5rem 1.5rem 0;
+}
+
+.hero-photo img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  object-position: center 15%;
+  border-radius: 24px;
+  box-shadow: 1.5rem 1.5rem 0 var(--accent);
+}
+
+@media (max-width: 900px) {
+  .hero-grid {
+    grid-template-columns: 1fr
+  }
+
+  .hero-photo {
+    grid-column: 1;
+    grid-row: 2;
+    max-width: 18rem;
+    margin-top: 1rem
+  }
+}
+/* big HTK block instead of the hero photo */
+.hero-photo {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1 / 1;
+  border-radius: 24px;
+  background: linear-gradient(135deg, #1e1b4b, var(--panel));
+  border: 1px solid #312e81;
+  box-shadow: 1.5rem 1.5rem 0 var(--accent);
+  font: 800 clamp(4rem, 10vw, 7rem) var(--font);
+  letter-spacing: -.04em;
+  color: #fff;
+}
