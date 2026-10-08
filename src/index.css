@@ -105,9 +105,29 @@ a {
 }
 
 .brand {
+  display: inline-flex;
+  align-items: center;
+  gap: .7rem;
   font-weight: 800;
   color: #fff;
   text-decoration: none
+}
+
+.avatar {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center 15%;
+  border: 2px solid var(--accent)
+}
+
+.avatar-fallback {
+  display: grid;
+  place-items: center;
+  background: var(--panel);
+  color: var(--link);
+  font: 800 .8rem var(--font)
 }
 
 .top nav {
@@ -150,7 +170,7 @@ a {
 
 .hero-grid {
   display: grid;
-  grid-template-columns: 1.3fr 1fr;
+  grid-template-columns: 1fr;
   gap: 3rem;
   align-items: center
 }
@@ -194,36 +214,6 @@ a {
   margin: 1rem 0 0;
   color: var(--muted);
   font-size: 1.15rem
-}
-
-.photo-wrap {
-  position: relative;
-  justify-self: center
-}
-
-.photo-wrap::before {
-  content: "";
-  position: absolute;
-  inset: 1.2rem -1.2rem -1.2rem 1.2rem;
-  border-radius: 28px;
-  background: var(--accent)
-}
-
-.photo {
-  position: relative;
-  width: min(20rem, 70vw);
-  aspect-ratio: 1;
-  border-radius: 28px;
-  object-fit: cover;
-  background: var(--panel)
-}
-
-.initials {
-  display: grid;
-  place-items: center;
-  color: var(--link);
-  font: 800 4rem var(--font);
-  border: 1px solid var(--line)
 }
 
 .facts {
@@ -604,8 +594,6 @@ footer {
 }
 
 @media(max-width:900px) {
-
-  .hero-grid,
   .about {
     grid-template-columns: 1fr
   }
@@ -613,10 +601,6 @@ footer {
   .cards,
   .jobs {
     grid-template-columns: 1fr 1fr
-  }
-
-  .photo-wrap {
-    order: -1
   }
 }
 
@@ -651,18 +635,6 @@ footer {
 }
 
 /* ---------- animations ---------- */
-@keyframes float {
-
-  0%,
-  100% {
-    transform: translateY(0)
-  }
-
-  50% {
-    transform: translateY(-10px)
-  }
-}
-
 @keyframes drift {
   from {
     transform: translate(0, 0) scale(1)
@@ -692,18 +664,6 @@ footer {
 @keyframes grow {
   from {
     transform: scaleX(0)
-  }
-}
-
-@keyframes pop {
-  from {
-    opacity: 0;
-    transform: scale(.92) translateY(20px)
-  }
-
-  to {
-    opacity: 1;
-    transform: none
   }
 }
 
@@ -774,10 +734,6 @@ footer {
 
 .hero-grid>div:first-child>:nth-child(5) {
   animation-delay: .4s
-}
-
-.photo-wrap {
-  animation: pop 1s .3s ease backwards, float 6s 1.4s ease-in-out infinite
 }
 
 .status::before {
@@ -1130,8 +1086,6 @@ footer {
 }
 
 /* ---------- extra motion ---------- */
-
-/* Name in the hero shimmers slowly */
 .hero-grid>div:first-child>h1 {
   background: linear-gradient(90deg, #fff 0%, #a5b4fc 30%, #22d3ee 50%, #a5b4fc 70%, #fff 100%);
   background-size: 200% auto;
@@ -1147,7 +1101,6 @@ footer {
   }
 }
 
-/* Skill chips pop in one after another when a card appears */
 @keyframes chip {
   from {
     opacity: 0;
@@ -1191,7 +1144,6 @@ footer {
   animation-delay: .65s
 }
 
-/* Shine sweeps across primary buttons on hover */
 .btn.primary {
   position: relative;
   overflow: hidden
@@ -1213,7 +1165,6 @@ footer {
   left: 130%
 }
 
-/* Soft glow that follows the mouse on cards */
 .project,
 .skill-card,
 .job,
@@ -1287,7 +1238,6 @@ footer {
   pointer-events: none
 }
 
-/* one button under certificates and achievements */
 .see-all {
   margin: 2rem 0 0
 }

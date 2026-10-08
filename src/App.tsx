@@ -169,7 +169,14 @@ export default function App() {
       <div className="progress" aria-hidden="true" />
       <header className="top">
         <div className="wrap bar">
-          <a href="#top" className="brand">Harasara Kuruppu</a>
+          <a href="#top" className="brand">
+            {photo ? (
+              <img className="avatar" src={profile.photo} alt="" onError={() => setPhoto(false)} />
+            ) : (
+              <span className="avatar avatar-fallback" aria-hidden="true">HTK</span>
+            )}
+            Harasara Kuruppu
+          </a>
           <button className="burger" aria-expanded={menu} onClick={() => setMenu(!menu)}>{menu ? 'Close' : 'Menu'}</button>
           <nav aria-label="Main" className={menu ? 'open' : ''} onClick={() => setMenu(false)}>
             {nav.map(([id, label]) => (<a key={id} href={`#${id}`} className={active === id ? 'active' : ''}>{label}</a>))}
@@ -192,13 +199,6 @@ export default function App() {
                   <a className="btn" href={profile.cv} target="_blank" rel="noreferrer">See my CV</a>
                   <a className="btn" href={`mailto:${profile.email}`}>Email me</a>
                 </p>
-              </div>
-              <div className="photo-wrap">
-                {photo ? (
-                  <img className="photo" src={profile.photo} alt={profile.name} onError={() => setPhoto(false)} />
-                ) : (
-                  <div className="photo initials" aria-hidden="true">HTK</div>
-                )}
               </div>
             </div>
             <div className="facts">
