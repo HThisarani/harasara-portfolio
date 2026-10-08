@@ -1467,3 +1467,15 @@ footer {
 .hero {
   padding-top: 2rem
 }
+/* image inside the hero block */
+.hero-photo {
+  overflow: hidden
+}
+
+.hero-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 1.5rem;
+}

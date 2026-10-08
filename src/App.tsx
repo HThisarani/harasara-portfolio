@@ -202,7 +202,9 @@ export default function App() {
                 </p>
               </div>
 
-              <div className="hero-photo" aria-hidden="true">HTK</div>
+              <div className="hero-photo">
+  <img src="./image.png" alt="HTK" />
+</div>
             </div>
             <div className="facts">
               {stats.map((s) => (<Stat key={s.t} n={s.n} t={s.t} />))}
