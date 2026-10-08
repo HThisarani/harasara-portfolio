@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from 'react'
 import type { CSSProperties, ReactNode } from 'react'
 
-import type { Project } from './data'
+import type { Project, FileGroup } from './data'
 import { details } from './details'
-import { profile, stats, experience, projects, skills, education, certifications, achievements, usedAtWork } from './data'
+import { profile, stats, experience, projects, skills, education, certifications, achievements, usedAtWork, certificateFiles, achievementFiles } from './data'
 const d = (i: number) => ({ '--i': i }) as CSSProperties
 // Your best 4 to 6 projects. Change these names to feature different ones.
 const featuredNames = [
@@ -69,6 +69,27 @@ function Stat({ n, t }: { n: string; t: string }) {
     return () => io.disconnect()
   }, [animate, target])
   return <div ref={ref}><strong>{m ? (animate ? val : m[1]) + m[2] : n}</strong><span>{t}</span></div>
+}
+
+// One button that opens a list of files (used for certificates and achievements).
+function FileList({ title, groups }: { title: string; groups: FileGroup[] }) {
+  return (
+    <details className="filebox reveal">
+      <summary className="btn primary">{title}</summary>
+      <div className="filegroups">
+        {groups.map((g) => (
+          <div key={g.group}>
+            <h3>{g.group}</h3>
+            <ul className="chips files">
+              {g.files.map((f) => (
+                <li key={f.url}><a href={f.url} target="_blank" rel="noreferrer">{f.label}</a></li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </details>
+  )
 }
 
 function Section({ id, title, intro, children, tone = '' }: { id: string; title: string; intro: string; children: ReactNode; tone?: string }) {
@@ -168,13 +189,13 @@ export default function App() {
                 <p className="tagline">{profile.tagline}</p>
                 <p className="cta">
                   <a className="btn primary" href="#projects">See my projects</a>
-                  <a className="btn" href={profile.cv} download>Download CV</a>
+                  <a className="btn" href={profile.cv} target="_blank" rel="noreferrer">See my CV</a>
                   <a className="btn" href={`mailto:${profile.email}`}>Email me</a>
                 </p>
               </div>
               <div className="photo-wrap">
                 {photo ? (
-                  <img className="photo" src="./photo.jpg" alt={profile.name} onError={() => setPhoto(false)} />
+                  <img className="photo" src={profile.photo} alt={profile.name} onError={() => setPhoto(false)} />
                 ) : (
                   <div className="photo initials" aria-hidden="true">HTK</div>
                 )}
@@ -198,6 +219,13 @@ export default function App() {
                 <strong>Looking for</strong>
                 <span>{profile.role}</span>
                 <span>{profile.looking}</span>
+              </div>
+              <div className="cv-box reveal" style={d(2)}>
+                <strong>My CV</strong>
+                <div className="cta">
+                  <a className="btn primary" href={profile.cv} target="_blank" rel="noreferrer">Click here to see my CV</a>
+                  <a className="btn" href={profile.cv} download>Download</a>
+                </div>
               </div>
             </div>
             <div className="reveal" style={d(1)}>
@@ -293,23 +321,23 @@ export default function App() {
                 <span className="seal">{c.badge}</span>
                 <h3>{c.name}</h3>
                 <p className="meta">{c.issuer} | {c.year}</p>
-                {c.link && <a className="btn" href={c.link} target="_blank" rel="noreferrer">View certificate</a>}
               </article>
             ))}
           </div>
+          <FileList title="Click here to see certificates" groups={certificateFiles} />
         </Section>
 
         <Section id="achievements" tone="soft" title="Achievements" intro="Academic and leadership recognition.">
           <div className="certs">
-            {achievements.map((a, i) => (
-              <article key={a.title} className="cert reveal" style={d(i % 3)}>
-                <span className="seal">{a.badge}</span>
-                <h3>{a.title}</h3>
-                <p className="meta">{a.org} | {a.year}</p>
-                {a.link && <a className="btn" href={a.link} target="_blank" rel="noreferrer">View</a>}
+            {achievements.map((x, i) => (
+              <article key={x.title} className="cert reveal" style={d(i % 3)}>
+                <span className="seal">{x.badge}</span>
+                <h3>{x.title}</h3>
+                <p className="meta">{x.org} | {x.year}</p>
               </article>
             ))}
           </div>
+          <FileList title="Click here to see achievements" groups={achievementFiles} />
         </Section>
 
         <section id="contact" className="contact">

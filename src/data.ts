@@ -1,4 +1,5 @@
 // Edit this file to update the site. Add github, demo and video links to a project when you have them.
+
 export const profile = {
   name: 'Harasara Thisarani Kuruppu',
   role: 'Full-stack and frontend developer, software engineer, QA associate',
@@ -9,7 +10,8 @@ export const profile = {
   email: 'htkharasara@gmail.com',
   github: 'https://github.com/HThisarani',
   linkedin: 'https://linkedin.com/in/harasara-thisarani-79098a2b4',
-  cv: './Harasara_Kuruppu_CV.pdf',
+  cv: './Harasara%20Thisarani%20Resume.pdf',
+  photo: './Profile.jpeg',
 }
 
 export const stats = [
@@ -121,18 +123,66 @@ export const education = [
   'Higher Diploma in Information Technology, SLIIT, 2022 to 2024.',
   'G.C.E. Advanced Level, Physical Science stream, Bandarawela Central College, 2018 to 2020.',
 ]
-// Put certificate PDFs or images in public/certificates and set link, for example link: './certificates/aws-academy.pdf'
+
 export const certifications = [
-  { name: 'AWS Academy Graduate: Cloud Web Application Builder', issuer: 'Amazon Web Services', year: '2025', badge: 'AWS', link: '' },
-  { name: 'AWS Skill Builder: Auto-Healing and Scaling, Networking Fundamentals, Relational Databases', issuer: 'Amazon Web Services', year: '2025', badge: 'AWS', link: '' },
-  { name: 'Azure: Blob Storage, Virtual Machines, Networking, Relational Databases', issuer: 'Microsoft Learn', year: '2025', badge: 'MS', link: '' },
-  { name: 'Azure Physical Infrastructure', issuer: 'Microsoft Learn Student Ambassadors', year: 'Sep 2024', badge: 'MS', link: '' },
-  { name: 'Microsoft Power Apps: Canvas App', issuer: 'Microsoft Power Platform', year: '2026', badge: 'MS', link: '' },
+  { name: 'AWS Academy Graduate: Cloud Web Application Builder', issuer: 'Amazon Web Services', year: '2025', badge: 'AWS' },
+  { name: 'AWS Skill Builder: Auto-Healing and Scaling, Networking Fundamentals, Relational Databases', issuer: 'Amazon Web Services', year: '2025', badge: 'AWS' },
+  { name: 'Azure: Blob Storage, Virtual Machines, Networking, Relational Databases', issuer: 'Microsoft Learn', year: '2025', badge: 'MS' },
+  { name: 'Azure Physical Infrastructure', issuer: 'Microsoft Learn Student Ambassadors', year: 'Sep 2024', badge: 'MS' },
+  { name: 'Microsoft Power Apps: Canvas App', issuer: 'Microsoft Power Platform', year: '2026', badge: 'MS' },
 ]
 
 // Add more achievements here.
 export const achievements = [
-  { title: 'SLIIT Scholarship: 50% for superior academic performance', org: 'SLIIT', year: '2025', badge: '50%', link: '' },
-  { title: 'Dean\u2019s List: Certificate for Academic Excellence', org: 'SLIIT', year: '2024', badge: 'DL', link: '' },
-  { title: 'School Prefect: leadership, responsibility and commitment', org: 'Bandarawela Central College', year: '2017 to 2020', badge: 'P', link: '' },
+  { title: 'SLIIT Scholarship: 50% for superior academic performance', org: 'SLIIT', year: '2025', badge: '50%' },
+  { title: 'Dean\u2019s List: Certificate for Academic Excellence', org: 'SLIIT', year: '2024', badge: 'DL' },
+  { title: 'School Prefect: leadership, responsibility and commitment', org: 'Bandarawela Central College', year: '2017 to 2020', badge: 'P' },
+]
+
+// The files shown when you click "Click here to see certificates" / "achievements".
+// File names must match the files in public/Certificates and public/Achievements exactly (capital letters count).
+export type FileGroup = { group: string; files: { label: string; url: string }[] }
+const file = (folder: string, name: string) => encodeURI(`./${folder}/${name}`)
+
+export const certificateFiles: FileGroup[] = [
+  {
+    group: 'AWS Academy Graduate: Cloud Web Application Builder',
+    files: [{ label: 'Training badge', url: file('Certificates', 'AWS Academy Graduate.pdf') }],
+  },
+  {
+    group: 'AWS Skill Builder',
+    files: [
+      { label: 'Skill Builder certificate', url: file('Certificates', 'AWS Skill Builder Certificate.pdf') },
+      { label: 'Auto-Healing and Scaling', url: file('Certificates', 'AWS SimuLearn Auto-Healing and Scaling Applications.pdf') },
+      { label: 'Networking Concepts', url: file('Certificates', 'AWS Skill Builder - Networking Concepts.pdf') },
+      { label: 'Relational Databases', url: file('Certificates', 'AWS Skill Builder - Relational Databases.pdf') },
+      { label: 'Connecting VPCs', url: file('Certificates', 'AWS Skill Builder - Connecting VPCsURL.pdf') },
+      { label: 'Highly Available Web Applications', url: file('Certificates', 'AWS Skill Builder - Highly Available Web Applications.pdf') },
+      { label: 'Amazon S3', url: file('Certificates', 'AWS Skill Builder - Introduction to Amazon Simple Storage Service (S3).pdf') },
+      { label: 'File Systems in the Cloud', url: file('Certificates', 'AWS SimuLearn File Systems in the Cloud.pdf') },
+      { label: 'Core Security Concepts', url: file('Certificates', 'AWS SimuLearn-Core Security Concepts.pdf') },
+    ],
+  },
+  {
+    group: 'Microsoft Learn: Azure',
+    files: [
+      { label: 'Blob Storage', url: file('Certificates', 'Microsoft Learn - Configure Azure Blob Storage.pdf') },
+      { label: 'VM Availability', url: file('Certificates', 'Microsoft Learn - Configure Virtual Machine Availability.pdf') },
+      { label: 'VM Disks', url: file('Certificates', 'Microsoft Learn - Add and size disks in Azure virtual machines.pdf') },
+      { label: 'Virtual Networks', url: file('Certificates', 'Microsoft Learn - Configure Virtual NetworksURL.pdf') },
+      { label: 'Relational Databases', url: file('Certificates', 'Microsoft Learn - Relational Databases.pdf') },
+      { label: 'Load Balancers', url: file('Certificates', 'Microsoft Learn - Load Balancers.pdf') },
+      { label: 'Identity and Access Security', url: file('Certificates', 'Microsoft Learn - Describe Azure identity access security.pdf') },
+    ],
+  },
+]
+
+export const achievementFiles: FileGroup[] = [
+  {
+    group: 'SLIIT Scholarship and Dean\u2019s List',
+    files: [
+      { label: 'Scholarship', url: file('Achievements', 'Scholarship.pdf') },
+      { label: 'Academic certificate (Dean\u2019s List)', url: file('Achievements', 'Academic_Certificate_Harasara_Thisarani.pdf') },
+    ],
+  },
 ]

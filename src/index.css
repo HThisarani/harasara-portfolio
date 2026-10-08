@@ -267,41 +267,6 @@ a {
   font-size: 1.08rem
 }
 
-.case {
-  display: grid;
-  grid-template-columns: 1.15fr 1fr;
-  gap: 3rem;
-  align-items: center;
-  padding: 2.5rem 0;
-  border-top: 1px solid var(--line)
-}
-
-.case:nth-child(even) .shot {
-  order: 2
-}
-
-.case h3 {
-  font-size: 1.7rem;
-  margin: .6rem 0
-}
-
-.case p {
-  margin: 0 0 1rem
-}
-
-.case ul.pts {
-  margin: 0 0 1.2rem;
-  padding-left: 1.1rem
-}
-
-.case .pts li+li {
-  margin-top: .35rem
-}
-
-.case .btn {
-  margin-top: .6rem
-}
-
 .shot {
   border-radius: 14px;
   overflow: hidden;
@@ -378,18 +343,6 @@ a {
 
 .mock.k-Other {
   background: linear-gradient(135deg, #475569, #334155)
-}
-
-.shot.phone {
-  max-width: 15rem;
-  margin-inline: auto;
-  border-radius: 30px;
-  border: 6px solid #1e293b
-}
-
-.shot.phone img,
-.shot.phone .mock {
-  aspect-ratio: 9/16
 }
 
 .shot.sm .mock {
@@ -544,26 +497,11 @@ a {
   font-size: 1.08rem
 }
 
-.focus {
-  display: grid;
-  gap: 1.3rem
-}
-
-.focus h3 {
-  font-size: 1.05rem;
-  margin-bottom: .2rem
-}
-
-.focus p {
-  margin: 0;
-  font-size: .98rem;
-  color: var(--muted)
-}
-
 .jobs {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.3rem
+  gap: 1.3rem;
+  align-items: start
 }
 
 .job {
@@ -592,46 +530,6 @@ a {
 
 .job li+li {
   margin-top: .35rem
-}
-
-.skills {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.6rem 3rem
-}
-
-.skills h3 {
-  font-size: 1rem;
-  margin-bottom: .5rem
-}
-
-.skills .chips {
-  margin: 0;
-  padding: 0
-}
-
-.edu {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
-  margin-top: 3rem;
-  padding-top: 2.5rem;
-  border-top: 1px solid var(--line)
-}
-
-.edu h3 {
-  font-size: 1.1rem;
-  margin-bottom: .7rem
-}
-
-.edu ul {
-  margin: 0;
-  padding-left: 1.1rem;
-  color: var(--muted)
-}
-
-.edu li+li {
-  margin-top: .45rem
 }
 
 .contact {
@@ -708,14 +606,8 @@ footer {
 @media(max-width:900px) {
 
   .hero-grid,
-  .case,
-  .about,
-  .edu {
+  .about {
     grid-template-columns: 1fr
-  }
-
-  .case:nth-child(even) .shot {
-    order: 0
   }
 
   .cards,
@@ -731,8 +623,7 @@ footer {
 @media(max-width:700px) {
 
   .cards,
-  .jobs,
-  .skills {
+  .jobs {
     grid-template-columns: 1fr
   }
 
@@ -990,11 +881,6 @@ footer {
   transition: transform .35s ease, box-shadow .35s ease
 }
 
-.case .shot:hover {
-  transform: translateY(-6px) scale(1.015);
-  box-shadow: 0 30px 60px rgba(79, 70, 229, .35)
-}
-
 .project:hover {
   border-color: #6366f1;
   box-shadow: 0 14px 34px rgba(79, 70, 229, .25)
@@ -1084,7 +970,8 @@ footer {
 .certs {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.2rem
+  gap: 1.2rem;
+  align-items: start
 }
 
 .cert {
@@ -1142,6 +1029,7 @@ footer {
     grid-template-columns: 1fr
   }
 }
+
 /* ---------- skills ---------- */
 .work-skills {
   display: flex;
@@ -1240,6 +1128,7 @@ footer {
     grid-template-columns: 1fr
   }
 }
+
 /* ---------- extra motion ---------- */
 
 /* Name in the hero shimmers slowly */
@@ -1249,7 +1138,7 @@ footer {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  animation: rise .8s .1s ease backwards, shine 7s linear infinite;
+  animation: rise .8s .1s ease backwards, shine 7s linear infinite
 }
 
 @keyframes shine {
@@ -1317,7 +1206,7 @@ footer {
   height: 100%;
   background: linear-gradient(100deg, transparent, rgba(255, 255, 255, .35), transparent);
   transform: skewX(-20deg);
-  transition: left .6s;
+  transition: left .6s
 }
 
 .btn.primary:hover::after {
@@ -1343,7 +1232,7 @@ footer {
   pointer-events: none;
   opacity: 0;
   transition: opacity .3s;
-  background: radial-gradient(18rem circle at var(--mx, 50%) var(--my, 50%), rgba(99, 102, 241, .18), transparent 60%);
+  background: radial-gradient(18rem circle at var(--mx, 50%) var(--my, 50%), rgba(99, 102, 241, .18), transparent 60%)
 }
 
 .project:hover::before,
@@ -1351,4 +1240,110 @@ footer {
 .job:hover::before,
 .cert:hover::before {
   opacity: 1
+}
+
+/* ---------- CV box and certificate buttons ---------- */
+.cv-box {
+  margin-top: 1.2rem;
+  padding: 1.1rem 1.3rem;
+  border: 1px solid var(--line);
+  border-left: 4px solid #22d3ee;
+  border-radius: 12px;
+  background: var(--panel)
+}
+
+.cv-box strong {
+  display: block;
+  color: #fff
+}
+
+.cv-box .cta {
+  margin: .8rem 0 0
+}
+
+.docs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin-top: auto
+}
+
+.docs-label {
+  flex-basis: 100%;
+  font-size: .85rem;
+  color: var(--muted)
+}
+
+.docs .btn {
+  margin-top: 0;
+  padding: .35rem .8rem;
+  font-size: .82rem
+}
+
+.btn.soon {
+  opacity: .5;
+  border-style: dashed;
+  cursor: default;
+  pointer-events: none
+}
+
+/* one button under certificates and achievements */
+.see-all {
+  margin: 2rem 0 0
+}
+
+/* click-to-open file lists */
+.filebox {
+  margin-top: 2rem
+}
+
+.filebox summary {
+  list-style: none;
+  width: max-content;
+  cursor: pointer
+}
+
+.filebox summary::-webkit-details-marker {
+  display: none
+}
+
+.filebox summary::after {
+  content: " \25BE"
+}
+
+.filebox[open] summary::after {
+  content: " \25B4"
+}
+
+.filegroups {
+  display: grid;
+  gap: 1.3rem;
+  margin-top: 1.3rem;
+  padding: 1.3rem 1.4rem;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 16px
+}
+
+.filegroups h3 {
+  font-size: 1rem;
+  margin-bottom: .6rem
+}
+
+.chips.files {
+  margin: 0;
+  padding: 0
+}
+
+.chips.files li {
+  padding: 0;
+  background: rgba(79, 70, 229, .28);
+  border: 1px solid #6366f1
+}
+
+.chips.files li a {
+  display: block;
+  padding: .25rem .8rem;
+  color: #fff;
+  text-decoration: none
 }
